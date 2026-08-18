@@ -6,7 +6,7 @@ INPUT_FILE="$1"
 LINE_NUM="$2"
 
 if [[ -z "${INPUT_FILE:-}" || -z "${LINE_NUM:-}" ]]; then
-  echo "Usage: MycoForge_worker.sh <metadata.tsv> <line_number>"
+  echo "Usage: MycoAssembler_worker.sh <metadata.tsv> <line_number>"
   exit 1
 fi
 
