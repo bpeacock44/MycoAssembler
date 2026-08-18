@@ -1,4 +1,4 @@
-# MycoForge 🍄 → 🧬 → 💻 
+# MycoAssembler 🍄 → 🧬 → 💻 
 This is a wrapper fungal assembly pipeline developed for the Borneman lab utilizing the following programs: 
 
 * **[AAFTF](https://github.com/stajichlab/AAFTF)** 
