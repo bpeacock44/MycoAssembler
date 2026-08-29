@@ -52,7 +52,7 @@ ln -s /opt/linux/rocky/8.x/x86_64/pkgs/PASA/2.5.2/pasa_conf/sample_test.conf sam
 cp $PASAHOME/pasa_conf/pasa.alignAssembly.Template.txt \
    $PASAHOME/pasa_conf/alignAssembly.sqlite.config 
 
-# And modify to look like the following:
+# And modify to include the following:
 
 #<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>#
 
@@ -76,7 +76,6 @@ subcluster_builder.dbi:-m=50
 
 # must change these variables before running part 4:
 module load funannotate
-export PASAHOME=~/.pasa
 export PASACONF=$PASAHOME/pasa_conf/alignAssembly.sqlite.config
 
 # - - 
@@ -154,8 +153,7 @@ export PATH=/rhome/bpeacock/bigdata/programs/CodingQuarry_v1.3:$PATH
 #U 2 --annots /rhome/bpeacock/bigdata/PN113_long_read_assembly/running_all_again/04_funannotate_genomes/acst.flye/acst.funannotate04/upd
 #ate_misc/genome.gff3
 #
-#When I ran it with no modifications, this error didn't occur. 
-#Debug! Hopefully all PASA modifications won't be needd.
+# Turns out adding the config file (setting PASACONF) is needed for the train step but causes issues with the update step. The solution is to unset PASACONF before running update. 
 
 # - - 
 
@@ -163,6 +161,6 @@ export PATH=/rhome/bpeacock/bigdata/programs/CodingQuarry_v1.3:$PATH
 
 # - -
 
-# Getting the same error. When I took off modifications it still didn't work. Chatgpt said it's probably because I only have 2 transcripts from Trinity and when I went back and checked, all other runs had tens of thousands so that could be the problem!
-# note - maybe the CMD ERROR has nothing to do with installation - it's something wrong with the data? go back and test
+# Getting the same error as the previous set. But I noticed the following:
 # [01/28/26 12:56:50]: 2 transcripts derived from Trinity
+# Apparently I was using bad data that couldn't be assembled. Once I changed the data it ran without issue. 

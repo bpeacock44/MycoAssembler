@@ -1,0 +1,8 @@
+name: hyalorbilia-liftoff
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  - liftoff=1.6.3
+  - gffread=0.12.7
