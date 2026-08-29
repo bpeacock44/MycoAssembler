@@ -584,7 +584,7 @@ annotate_genome() {
 
         echo "--- Step 7a: eggnog mapper ---"
         [[ ! -s "$PREDICT/annotate_misc/eggnog.emapper.annotations" ]] && \
-            MycoForge_eggnog.py -i "$PREDICT/predict_results/${SPECIES}_${BASE}.proteins.fa" \
+            MycoAssembler_eggnog.py -i "$PREDICT/predict_results/${SPECIES}_${BASE}.proteins.fa" \
                            -o "$PREDICT/annotate_misc/eggnog" --cpus "$THREADS" || \
             echo "Eggnog mapper output exists; skipping."
         check_file "$PREDICT/annotate_misc/eggnog.emapper.annotations" "Eggnog mapper annotations output"

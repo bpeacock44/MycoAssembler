@@ -59,7 +59,7 @@ LOGFILE="$LOGDIR/worker.${BASE}.line${LINE_NUM}.log"
 exec > >(tee -a "$LOGFILE") 2>&1
 
 # # # Load functions # # #
-source MycoForge_helper_functions.sh
+source MycoAssembler_helper_functions.sh
 
 # # # Run pipeline # # #
 echo "Step 1: Preprocessing short reads"

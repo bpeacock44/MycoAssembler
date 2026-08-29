@@ -82,7 +82,7 @@ check_des_collisions() {
 check_des_collisions
 
 # # # FINAL VALIDATIONS # # #
-for f in MycoForge_helper_functions.sh MycoForge_eggnog.py MycoForge_worker.sh; do
+for f in MycoAssembler_helper_functions.sh MycoAssembler_eggnog.py MycoAssembler_worker.sh; do
   printf "%-30s : " "$f"
   if command -v "$f" >/dev/null 2>&1 && [[ -x "$(command -v "$f")" ]]; then
     echo "OK ($(command -v "$f"))"
@@ -102,7 +102,7 @@ done
 [[ "$SR_DIR" != "NA" && ! -d "$SR_DIR" ]] && { echo "Missing SR_DIR: $SR_DIR"; exit 1; }
 [[ "$RNA_DIR" != "NA" && ! -d "$RNA_DIR" ]] && { echo "Missing RNA_DIR: $RNA_DIR"; exit 1; }
 
-source MycoForge_helper_functions.sh
+source MycoAssembler_helper_functions.sh
 validate_metadata
 
 # # # BUILD SBATCH OPTIONS # # #
@@ -140,6 +140,6 @@ while IFS= read -r line; do
   sbatch \
     --job-name=fass_${LINE_NUM} \
     "${SBATCH_ARGS[@]}" \
-    MycoForge_worker.sh "$INPUT_FILE" "$LINE_NUM"
+    MycoAssembler_worker.sh "$INPUT_FILE" "$LINE_NUM"
 
 done <<< "$DATA_LINES"
